@@ -1,12 +1,14 @@
 import "./Profile.css";
 
+import snorlaxPic from "../../assets/snorlax.png";
+
 function Profile() {
     return (
         <section className="ProfileCard">
             <div className="ProfileImage">
                 <img
                     className="ProfilePic"
-                    src="src/assets/snorlax.png"
+                    src={snorlaxPic}
                     alt="Lionel"
                 />
             </div>
