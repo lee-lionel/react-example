@@ -56,3 +56,34 @@
 
     margin: 0; /* important: let gap handle spacing */
 }
+
+/* ========================= */
+/* 📱 MOBILE RESPONSIVE */
+/* ========================= */
+@media (max-width: 768px) {
+
+    .ProfileCard {
+        flex-direction: column;   /* stack image + text */
+        text-align: center;
+
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .ProfilePic {
+        width: 220px;
+        height: 220px;
+    }
+
+    .ProfileInfo {
+        align-items: center;  /* center text block */
+    }
+
+    .ProfileInfo h1 {
+        font-size: 2.5rem; /* shrink big heading */
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}
