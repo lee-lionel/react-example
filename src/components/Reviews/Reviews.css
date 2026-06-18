@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+}
+
+/* MAIN PAGE */
+.reviews-page {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 40px 20px;
+
+    /* IMPORTANT: do NOT constrain width */
+    max-width: none;
+}
+
+/* TITLE */
+.reviews-page h2 {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* ========================= */
+/* GRID (THIS IS THE FIX) */
+/* ========================= */
+.reviews-grid {
+    display: grid;
+
+    width: 100%;
+
+    /* FORCE MULTI COLUMN */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+    gap: 20px;
+
+    padding: 20px;
+
+    align-items: stretch;
+}
+
+/* ========================= */
+/* CARD */
+/* ========================= */
+.Card-container {
+    background: white;
+    border-radius: 12px;
+
+    padding: 16px;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    min-height: 160px;
+}
+
+.Card-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+/* NAME */
+.Card-container p:first-of-type {
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* STARS */
+.stars {
+    color: gold;
+    font-size: 1.1rem;
+}
+
+/* REVIEW TEXT */
+.review-text {
+    color: #444;
+    font-size: 0.9rem;
+    line-height: 1.4;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* ========================= */
+/* FORM */
+/* ========================= */
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    max-width: 500px;
+    margin: 40px auto;
+
+    background: white;
+    padding: 20px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.review-form input,
+.review-form textarea {
+    padding: 10px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.review-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.review-form button {
+    padding: 10px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #0077ff;
+    color: white;
+
+    cursor: pointer;
+}
+
+.review-form button:hover {
+    background: #005fcc;
+}
+
+/* ========================= */
+/* STAR RATING */
+/* ========================= */
+.star-rating {
+    font-size: 2rem;
+    display: flex;
+    gap: 5px;
+}
+
+.star-rating span {
+    cursor: pointer;
+}
+
+/* ========================= */
+/* ERROR */
+/* ========================= */
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ========================= */
+/* RESPONSIVE BREAKPOINTS */
+/* ========================= */
+
+/* tablet */
+@media (max-width: 900px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* mobile */
+@media (max-width: 600px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}

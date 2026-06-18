@@ -1,0 +1,58 @@
+.ProfileCard {
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 80px;
+
+    padding: 40px;
+}
+
+/* PROFILE IMAGE */
+.ProfilePic {
+    width: 350px;
+    height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+/* TEXT COLUMN */
+.ProfileInfo {
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px; /* 👈 KEY FIX: controls spacing properly */
+}
+
+/* SMALL INTRO TEXT */
+.intro {
+    letter-spacing: 3px;
+    color: gray;
+}
+
+/* MAIN TITLE */
+.ProfileInfo h1 {
+    font-size: 4rem;
+
+    margin: 0;        /* remove default spacing */
+    line-height: 1.1; /* prevents visual overlap */
+}
+
+/* HIGHLIGHTED TEXT */
+.ProfileInfo span {
+    color: #4f46e5;
+}
+
+/* DESCRIPTION PARAGRAPH */
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+
+    margin: 0; /* important: let gap handle spacing */
+}

@@ -1,0 +1,48 @@
+.Card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 14px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+
+    width: 220px;
+    background: white;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+
+    text-align: center;
+    gap: 8px;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Card-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+/* name */
+.Card-container p:first-of-type {
+    font-weight: bold;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* stars (if you use emoji or span stars) */
+.stars {
+    color: gold;
+    font-size: 1.1rem;
+}
+
+/* review text */
+.review-text {
+    font-size: 0.9rem;
+    color: #444;
+
+    line-height: 1.4;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}

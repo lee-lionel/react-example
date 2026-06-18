@@ -1,0 +1,36 @@
+.products-grid {
+    display: grid;
+
+    /* responsive modern grid */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+
+    padding: 20px;
+
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input {
+    width: 100%;
+    max-width: 400px;
+
+    padding: 10px 14px;
+
+    margin: 20px auto;
+    display: block;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    font-size: 1rem;
+
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #0077ff;
+    box-shadow: 0 0 0 3px rgba(0,119,255,0.15);
+}

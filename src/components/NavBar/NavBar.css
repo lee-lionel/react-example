@@ -1,0 +1,78 @@
+/* NAVBAR CONTAINER */
+.nav {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 24px;
+
+    background: #111;
+    color: white;
+
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* DESKTOP LINKS (RIGHT SIDE) */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #00bfff;
+}
+
+/* HAMBURGER (hidden on desktop) */
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ========================= */
+/* MOBILE RESPONSIVE SECTION */
+/* ========================= */
+@media (max-width: 768px) {
+
+    /* hide desktop links */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+
+        flex-direction: column;
+        background: #111;
+
+        width: 200px;
+
+        padding: 16px;
+
+        display: none;
+    }
+
+    /* when active (opened menu) */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
