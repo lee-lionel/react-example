@@ -225,6 +225,29 @@
     border: 0;
 }
 
+/* A finger needs more than a 13px checkbox, and iOS zooms inputs under
+   16px on focus. */
+@media (pointer: coarse) {
+    .search-field input,
+    .control select {
+        font-size: 16px;
+        min-height: 44px;
+    }
+    .control.checkbox {
+        min-height: 44px;
+    }
+    .control.checkbox input {
+        width: 20px;
+        height: 20px;
+    }
+    .add-button {
+        min-height: 44px;
+    }
+    .basket-clear {
+        min-height: 36px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .basket-bar,
     .product-card,
