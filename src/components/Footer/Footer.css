@@ -3,7 +3,7 @@
     padding: 20px;
 
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text);
 
     border-top: 1px solid #eee;
 

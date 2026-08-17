@@ -191,7 +191,7 @@
 }
 
 .add-button:hover:not(:disabled) {
-    color: #fff;
+    color: var(--accent-ink);
     background: var(--accent);
     border-color: var(--accent);
 }

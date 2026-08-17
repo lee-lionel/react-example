@@ -33,7 +33,7 @@
 /* SMALL INTRO TEXT */
 .intro {
     letter-spacing: 3px;
-    color: gray;
+    color: var(--text);
 }
 
 /* MAIN TITLE */
@@ -46,7 +46,7 @@
 
 /* HIGHLIGHTED TEXT */
 .ProfileInfo span {
-    color: #4f46e5;
+    color: var(--accent);
 }
 
 /* DESCRIPTION PARAGRAPH */

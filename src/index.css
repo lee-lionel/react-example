@@ -4,9 +4,10 @@
   --bg: #fff;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
+  --accent: #8f22e0;
+  --accent-ink: #ffffff;
+  --accent-bg: rgba(143, 34, 224, 0.1);
+  --accent-border: rgba(143, 34, 224, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
   /* Card surface, and the well the art sits in. The well follows the theme —
      a dark box on a white page reads as a hole, not a display case. */
@@ -43,6 +44,7 @@
     --border: #2e303a;
     --code-bg: #1f2028;
     --accent: #c084fc;
+    --accent-ink: #1f0733;
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
