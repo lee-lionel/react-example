@@ -1,88 +1,209 @@
-.products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-}
+/* ============================================================
+   Product card
 
-/* CARD */
+   The card art is the product, so it is never cropped — a trading card
+   has a fixed 5:7 shape and cutting it loses the frame and the rarity
+   marks people actually buy on.
+   ============================================================ */
+
 .product-card {
-    background: white;
-    border-radius: 12px;
-
-    padding: 15px;
-
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-
     display: flex;
     flex-direction: column;
-
-    gap: 10px;
-    
-    height: 100%;   /* IMPORTANT for equal height */
+    /* Follows the theme instead of hardcoding white, which used to leave
+       the cards glaring on a dark background. */
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    text-align: left;
+    transition:
+        transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 220ms ease;
 }
 
-/* IMAGE FRAME */
+@media (hover: hover) {
+    .product-card:not(.is-gone):hover {
+        transform: translateY(-4px);
+        border-color: var(--accent-border);
+    }
+    .product-card:not(.is-gone):hover .image-container img {
+        transform: scale(1.04);
+    }
+}
+
+/* IMAGE FRAME — the card's own proportions. */
 .image-container {
     position: relative;
-    width: 100%;
-    height: 350px; /* all images same size */
+    aspect-ratio: 5 / 7;
+    display: grid;
+    place-items: center;
+    padding: 14px;
     overflow: hidden;
-    background: #f5f5f5;
+    background:
+        radial-gradient(ellipse 70% 55% at 50% 40%, var(--art-glow), transparent 70%),
+        var(--art-bg);
 }
 
-/* IMAGE */
 .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;        /* zoom + crop */
-    object-position: center;  /* keep centered */
+    max-width: 100%;
+    max-height: 100%;
+    /* contain, not cover: show the whole card. */
+    object-fit: contain;
     display: block;
-    border-radius: 5%;
+    border-radius: 6px;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+    transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* SOLD OUT effect */
 .sold-out {
-    filter: grayscale(100%) brightness(50%);
+    filter: grayscale(100%) brightness(55%);
 }
 
-/* SALE banner */
 .sale-banner {
     position: absolute;
     top: 10px;
     left: 10px;
-
-    background: red;
-    color: white;
-    font-weight: bold;
-    padding: 6px 10px;
-    border-radius: 4px;
     z-index: 2;
+    padding: 3px 9px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #d92d20;
+    border-radius: 5px;
 }
 
-/* SOLD OUT overlay */
 .out-of-stock {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    background: rgba(0, 0, 0, 0.75);
-    color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 1.2rem;
-
     z-index: 2;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.78);
+    border-radius: 6px;
 }
 
-/* TEXT STYLING */
-.product-card h3 {
-    margin: 10px 0 5px;
+/* TEXT */
+.product-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 14px 0;
 }
 
-.product-card p {
-    margin: 5px 0;
+.product-name {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text-h);
+}
+
+.product-desc {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--text);
+}
+
+.product-foot {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+    padding: 12px 14px 14px;
+}
+
+.product-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Price is what the page is for — it gets the weight. */
+.product-price {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-h);
+    font-variant-numeric: tabular-nums;
+}
+
+.stock-chip {
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    border-radius: 999px;
+    border: 1px solid transparent;
+}
+
+.stock-ok {
+    color: #15803d;
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.stock-low {
+    color: #b45309;
+    background: rgba(245, 158, 11, 0.14);
+    border-color: rgba(245, 158, 11, 0.35);
+}
+
+.stock-gone {
+    color: var(--text);
+    background: var(--social-bg);
+    border-color: var(--border);
+}
+
+@media (prefers-color-scheme: dark) {
+    .stock-ok {
+        color: #4ade80;
+    }
+    .stock-low {
+        color: #fbbf24;
+    }
+}
+
+.add-button {
+    width: 100%;
+    padding: 9px 14px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--accent);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+}
+
+.add-button:hover:not(:disabled) {
+    opacity: 0.88;
+}
+
+.add-button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.add-button:disabled {
+    cursor: not-allowed;
+    color: var(--text);
+    background: transparent;
+    border-color: var(--border);
+}
+
+.add-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }

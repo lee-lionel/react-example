@@ -1,12 +1,7 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
-}
+/* No global rules here. A component stylesheet that restyles `body` leaks
+   across every route once bundled — this one used to paint #f7f7f7 over the
+   whole document, which broke dark mode everywhere. Document-level styling
+   lives in index.css. */
 
 /* MAIN PAGE */
 .reviews-page {
@@ -44,7 +39,9 @@ body {
 /* CARD */
 /* ========================= */
 .Card-container {
-    background: white;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-h);
     border-radius: 12px;
 
     padding: 16px;
@@ -81,7 +78,7 @@ body {
 
 /* REVIEW TEXT */
 .review-text {
-    color: #444;
+    color: var(--text);
     font-size: 0.9rem;
     line-height: 1.4;
 
@@ -93,6 +90,7 @@ body {
 /* FORM */
 /* ========================= */
 .review-form {
+    color: var(--text-h);
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -100,7 +98,8 @@ body {
     max-width: 500px;
     margin: 40px auto;
 
-    background: white;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
     padding: 20px;
 
     border-radius: 12px;
@@ -112,7 +111,10 @@ body {
 .review-form textarea {
     padding: 10px;
 
-    border: 1px solid #ddd;
+    font: inherit;
+    color: var(--text-h);
+    background: var(--bg);
+    border: 1px solid var(--border);
     border-radius: 8px;
 }
 
@@ -127,14 +129,16 @@ body {
     border: none;
     border-radius: 8px;
 
-    background: #0077ff;
-    color: white;
+    font: inherit;
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
 
     cursor: pointer;
 }
 
 .review-form button:hover {
-    background: #005fcc;
+    opacity: 0.88;
 }
 
 /* ========================= */
@@ -154,7 +158,7 @@ body {
 /* ERROR */
 /* ========================= */
 .error {
-    color: red;
+    color: #e5484d;
     font-weight: bold;
     text-align: center;
 }
