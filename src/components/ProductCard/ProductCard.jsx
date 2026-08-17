@@ -1,3 +1,4 @@
+import { useState } from "react"
 import "./ProductCard.css"
 
 /** Currency, with separators — $10000 is hard to read at a glance. */
@@ -25,6 +26,7 @@ function ProductCard({
     inBasket = 0,
     onAdd,
 }) {
+    const [imageFailed, setImageFailed] = useState(false)
     const isOutOfStock = quantity === 0
     const stock = stockState(quantity)
     const remaining = quantity - inBasket
@@ -33,12 +35,19 @@ function ProductCard({
     return (
         <article className={`product-card${isOutOfStock ? " is-gone" : ""}`}>
             <div className="image-container">
-                <img
-                    src={image}
-                    alt={`${name} — ${description}`}
-                    loading="lazy"
-                    className={isOutOfStock ? "sold-out" : ""}
-                />
+                {imageFailed ? (
+                    // The art is the product, so a missing file should still
+                    // say what the listing is rather than show a broken icon.
+                    <p className="image-missing">{name}</p>
+                ) : (
+                    <img
+                        src={image}
+                        alt={`${name} — ${description}`}
+                        loading="lazy"
+                        onError={() => setImageFailed(true)}
+                        className={isOutOfStock ? "sold-out" : ""}
+                    />
+                )}
 
                 {isOnSale && !isOutOfStock && <span className="sale-banner">Sale</span>}
                 {isOutOfStock && <span className="out-of-stock">Sold out</span>}

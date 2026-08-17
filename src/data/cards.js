@@ -4,7 +4,7 @@ const products = [
         name: "Marco",
         price: 25,
         quantity: 4,
-        image: "https://cdn.snkrdunk.com/upload_bg_removed/20240717070618-0.webp?size=l",
+        image: "/cards/01-marco.webp",
         description: "EX Pack Vol 1 Marco",
         isOnSale: false,
     },
@@ -13,7 +13,7 @@ const products = [
         name: "Izou",
         price: 25,
         quantity: 0,
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjr2hLpZDlUcmk8bE8MINJOgqX9OpTPZ8DYw&s",
+        image: "/cards/02-izou.jpg",
         description: "TD Alternate Art Izou",
         isOnSale: false
     },
@@ -22,7 +22,7 @@ const products = [
         name: "Shanks",
         price: 120,
         quantity: 4,
-        image: "https://tcg-corner.com/cdn/shop/files/ST16-004_p1_840x.png?v=1740780257",
+        image: "/cards/03-shanks.png",
         description: "OP11 Shanks SP",
         isOnSale: true
     },
@@ -31,7 +31,7 @@ const products = [
         name: "Enel",
         price: 48,
         quantity: 1,
-        image: "https://asia-en.onepiece-cardgame.com/onepiececg/bccard/jp/news/2026/03/26/l3t1Ie8wpyMkiCb1/OP15-060.jpg?_=",
+        image: "/cards/04-enel.jpg",
         description: "Flagship Enel",
         isOnSale: true
     },
@@ -40,7 +40,7 @@ const products = [
         name: "Shanks",
         price: 20,
         quantity: 8,
-        image: "https://media.karousell.com/media/photos/products/2024/10/29/op09004_shanks_parallel_sr_aa__1730204907_cb72b020_progressive",
+        image: "/cards/05-shanks.jpg",
         description: "OP09 Shanks Alternate Art",
         isOnSale: false
     },
@@ -49,7 +49,7 @@ const products = [
         name: "Yamato",
         price: 100,
         quantity: 0,
-        image: "https://www.bing.com/th/id/OIP.FPULu0jHnInNBOgpde0fnwHaKV?w=194&h=271&c=8&rs=1&qlt=70&o=6&pid=3.1&rm=2",
+        image: "/cards/06-yamato.jpg",
         description: "Flagship Yamato",
         isOnSale: false
     },
@@ -58,7 +58,7 @@ const products = [
         name: "Luffy",
         price: 17,
         quantity: 4,
-        image: "https://cardpiece.com/cdn/shop/files/131_83bfa13a-1da4-474a-be66-76e2e9223ae1.png?v=1749533823",
+        image: "/cards/07-luffy.png",
         description: "OP12 Luffy Alterate Art",
         isOnSale: true
     },
@@ -67,7 +67,7 @@ const products = [
         name: "Law",
         price: 30,
         quantity: 4,
-        image: "https://i.ebayimg.com/images/g/xf0AAeSwTThpmYEo/s-l1600.webp",
+        image: "/cards/08-law.webp",
         description: "EB03 Law Alternate Art",
         isOnSale: true
     },
@@ -76,7 +76,7 @@ const products = [
         name: "Uta",
         price: 25,
         quantity: 5,
-        image: "https://card.yuyu-tei.jp/opc/front/eb03/10078.jpg",
+        image: "/cards/09-uta.jpg",
         description: "EB03 Uta Alternate Art",
         isOnSale: true
     },
@@ -85,7 +85,7 @@ const products = [
         name: "Luffy",
         price: 10000,
         quantity: 0,
-        image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR7jGLSrhyyH2imD8eg0POqAmixtnvzmINPB1itEu8eZwCEiEnXHVVbPqnfsyVMtFZN0Z2Ji1UvKhCIF1FrSrw4RoHxHz2rZAEN9kVBaefZz-z89cJeJ2LWDNV1B5Tlg_msdR5Ks68&usqp=CAc",
+        image: "/cards/10-luffy.webp",
         description: "Flagship Serial Luffy",
         isOnSale: false
     }
