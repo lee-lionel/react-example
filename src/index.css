@@ -8,11 +8,11 @@
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
-  /* Card surface, and the well the card art sits in. The art is vivid, so
-     it gets a dark backdrop in both themes to sit against. */
+  /* Card surface, and the well the art sits in. The well follows the theme —
+     a dark box on a white page reads as a hole, not a display case. */
   --card-bg: #fff;
-  --art-bg: #14151a;
-  --art-glow: rgba(255, 255, 255, 0.09);
+  --art-bg: #f1f1f4;
+  --art-glow: rgba(255, 255, 255, 0.7);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
@@ -47,7 +47,7 @@
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
     --card-bg: #1c1d25;
-    --art-bg: #0e0f13;
+    --art-bg: #101118;
     --art-glow: rgba(192, 132, 252, 0.10);
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;

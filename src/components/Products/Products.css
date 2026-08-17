@@ -112,8 +112,8 @@
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(198px, 1fr));
+    gap: 16px;
     align-items: stretch;
 }
 
