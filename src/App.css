@@ -1,10 +1,9 @@
-.page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
 }
 
-.footer {
-  text-align: center;
-  padding: 10px;
+.app-main {
+  flex: 1;
 }

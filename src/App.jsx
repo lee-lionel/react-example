@@ -1,36 +1,46 @@
-import Profile from './components/Profile/Profile'
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import Header from './components/Shell/Header'
+import Footer from './components/Shell/Footer'
+import Shop from './pages/Shop'
+import CardDetail from './pages/CardDetail'
+import Basket from './pages/Basket'
+import Reviews from './pages/Reviews'
+import About from './pages/About'
+import { BasketProvider } from './store/basket'
 import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Interests from './components/Interests/Interests'
 
-import Products from './components/Products/Products'
-import Reviews from './components/Reviews/Reviews'
-
-function App() {
-
-
-  return (
-    <>
-     <BrowserRouter>
-     <div className='page'>
-      <Header/>
-        {/* A main landmark, so assistive tech can skip the nav. */}
-        <main>
-        <Routes>
-          <Route path='/' element={<Profile/>}/>
-          <Route path='/reviews' element={<Reviews/>}/>
-          <Route path='/products' element={<Products/>}/>
-          <Route path='/interests' element= {<Interests/>}/>
-        </Routes>
-        </main>
-        </div>
-        <Footer className='footer'/>
-     </BrowserRouter>
-      
-    </>
-  )
+/* Router keeps scroll position between routes, so clicking a card from
+   halfway down the grid lands you halfway down its detail page. */
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [pathname])
+  return null
 }
 
-export default App
+export default function App() {
+  return (
+    <BasketProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <div className="app">
+          <Header />
+          <main className="app-main">
+            <Routes>
+              <Route path="/" element={<Shop />} />
+              <Route path="/card/:slug" element={<CardDetail />} />
+              <Route path="/basket" element={<Basket />} />
+              <Route path="/reviews" element={<Reviews />} />
+              <Route path="/about" element={<About />} />
+              {/* Anything else is the shop rather than a blank screen. */}
+              <Route path="*" element={<Shop />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </BasketProvider>
+  )
+}

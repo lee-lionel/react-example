@@ -1,0 +1,239 @@
+.reviews {
+  padding-bottom: 4rem;
+}
+
+.reviews-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.reviews-avg {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.reviews-count {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* ---- stars ---- */
+
+.stars {
+  display: inline-flex;
+  gap: 1px;
+}
+
+.star {
+  fill: color-mix(in oklab, var(--ink) 18%, transparent);
+}
+
+.star.is-on {
+  /* Amber is the one place a rating gets colour, because a star that is not
+     gold does not read as a star. */
+  fill: var(--low);
+}
+
+/* ---- controls ---- */
+
+.reviews-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.reviews-controls select {
+  min-height: 42px;
+  padding: 0 0.6rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.reviews-showing {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* ---- grid ---- */
+
+.reviews-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+
+.review.is-mine {
+  border-color: var(--line-strong);
+}
+
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.review-avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--ink) 10%, transparent);
+  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  font-weight: 700;
+}
+
+.review-name {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.review-tag {
+  margin-left: auto;
+}
+
+.review-text {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+/* ---- form ---- */
+
+.review-form-wrap {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.review-form-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.15rem;
+}
+
+.review-form {
+  display: grid;
+  gap: 1.1rem;
+  align-items: start;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  max-width: 42rem;
+}
+
+@media (min-width: 44rem) {
+  .review-form {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .review-field-wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r);
+  background: var(--page);
+  color: var(--ink);
+  font-family: inherit;
+  resize: vertical;
+}
+
+.review-form input:focus-visible,
+.review-form textarea:focus-visible {
+  border-color: var(--ink);
+}
+
+.review-remaining {
+  font-size: 0.75rem;
+  color: var(--faint);
+}
+
+/* ---- star picker ---- */
+
+.picker {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.picker-row {
+  display: flex;
+  gap: 0.15rem;
+  margin-top: 0.4rem;
+}
+
+.picker-star {
+  /* Positioned so the visually-hidden radio inside it stays inside it. An
+     .sr-only element is position:absolute, and without a positioned parent it
+     resolves against a distant ancestor and pushed the document 37px wider
+     than the viewport. */
+  position: relative;
+  /* 44px of target per star, so this is usable with a thumb. */
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  border-radius: var(--r-sm);
+}
+
+.picker-star svg {
+  fill: color-mix(in oklab, var(--ink) 20%, transparent);
+  transition: fill 120ms ease;
+}
+
+.picker-star.is-on svg {
+  fill: var(--low);
+}
+
+.picker-star:hover svg {
+  fill: var(--low);
+}
+
+/* The radio is visually hidden, so its focus ring has to land on the label. */
+.picker-star:focus-within {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .picker-star svg {
+    transition: none;
+  }
+}
+
+.review-posted {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--in);
+  border-radius: var(--r);
+  background: color-mix(in oklab, var(--in) 10%, transparent);
+  color: var(--in);
+  font-weight: 600;
+  max-width: 42rem;
+}

@@ -1,0 +1,173 @@
+.hdr {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in oklab, var(--page) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.hdr-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 64px;
+}
+
+/* ---- brand ---- */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.brand-mark {
+  font-size: 1.1rem;
+  line-height: 1;
+  flex: none;
+}
+
+.brand-name {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.brand-sub {
+  font-family: 'Archivo Variable', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* ---- nav ---- */
+
+/* Takes the slack between brand and basket, and is the element that gives way
+   when the row runs out of room. */
+.hdr-nav {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hdr-links {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.hdr-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 0.7rem;
+  border-radius: var(--r-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.hdr-link:hover {
+  color: var(--ink);
+  background: color-mix(in oklab, var(--ink) 6%, transparent);
+}
+
+.hdr-link.is-active {
+  color: var(--ink);
+}
+
+/* ---- basket ---- */
+
+.basket-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: none;
+  min-height: 40px;
+  padding: 0 0.8rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.basket-btn:hover {
+  background: color-mix(in oklab, var(--ink) 6%, transparent);
+}
+
+.basket-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--btn);
+  color: var(--btn-ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* ---- narrowing, in two steps ---- */
+
+/* First the labels go, which buys enough room to stay on one line. */
+@media (max-width: 34rem) {
+  .basket-word {
+    display: none;
+  }
+  .hdr-link {
+    padding: 0 0.5rem;
+    font-size: 0.86rem;
+  }
+  .brand-sub {
+    display: none;
+  }
+}
+
+/* Then the nav drops to its own row. Brand and basket keep the top line; the
+   links scroll sideways inside their row rather than widening the page. */
+@media (max-width: 30rem) {
+  .hdr-inner {
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+  }
+
+  .brand-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hdr-nav {
+    order: 2;
+    flex: 1 0 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .hdr-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hdr-links {
+    flex: none;
+  }
+}

@@ -1,0 +1,244 @@
+.basket {
+  padding-bottom: 4rem;
+}
+
+.basket-done {
+  padding-bottom: 5rem;
+}
+
+.basket-done-actions {
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.basket-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 58rem) {
+  .basket-grid {
+    grid-template-columns: minmax(0, 1fr) 19rem;
+    gap: 2.5rem;
+  }
+}
+
+/* ---- lines ---- */
+
+.basket-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+
+@media (min-width: 40rem) {
+  .line {
+    grid-template-columns: 5.5rem minmax(0, 1fr) auto;
+    align-items: start;
+  }
+}
+
+.line-art {
+  display: block;
+}
+
+.line-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.line-meta {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.line-name {
+  font-size: 1.2rem;
+}
+
+.line-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.line-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 0.55rem;
+}
+
+.line-remove {
+  background: none;
+  border: 0;
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+.line-remove:hover {
+  color: var(--ink);
+}
+
+.line-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  grid-column: 2;
+}
+
+@media (min-width: 40rem) {
+  .line-price {
+    grid-column: auto;
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+.line-price .price {
+  font-size: 1.2rem;
+}
+
+.line-each {
+  font-size: 0.75rem;
+  color: var(--faint);
+}
+
+/* ---- stepper ---- */
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.stepper button {
+  /* 40px keeps both controls thumb-sized without making the row huge. */
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.stepper button:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--ink) 8%, transparent);
+}
+
+.stepper button:disabled {
+  color: var(--out);
+  cursor: not-allowed;
+}
+
+.stepper-count {
+  min-width: 2ch;
+  text-align: center;
+  font-weight: 700;
+  border-inline: 1px solid var(--line);
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  padding: 0 0.4rem;
+}
+
+/* ---- summary ---- */
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+
+@media (min-width: 58rem) {
+  .summary {
+    position: sticky;
+    top: 88px;
+  }
+}
+
+.summary-title {
+  font-size: 1.2rem;
+}
+
+.summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.summary-rows > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.92rem;
+}
+
+.summary-rows dt {
+  color: var(--muted);
+}
+
+.summary-rows dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.summary-nudge {
+  font-size: 0.82rem;
+  color: var(--faint);
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-top: 0.7rem;
+  margin-top: 0.2rem;
+  border-top: 1px solid var(--line);
+  font-weight: 700;
+}
+
+.summary-total .price {
+  font-size: 1.5rem;
+}
+
+.summary-go {
+  margin-top: 0.4rem;
+  min-height: 48px;
+}
+
+.summary-fine {
+  font-size: 0.75rem;
+  color: var(--faint);
+  text-align: center;
+}
