@@ -14,8 +14,11 @@
     max-width: none;
 }
 
-/* TITLE */
+/* TITLE — h1 names the page, h2 the sections within it; both share the
+   same centred treatment they had when they were all h2. */
+.reviews-page h1,
 .reviews-page h2 {
+    font-size: 1.5rem;
     text-align: center;
     margin: 30px 0;
 }

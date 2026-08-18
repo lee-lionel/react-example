@@ -54,7 +54,7 @@ function Reviews() {
     return (
         <div className="reviews-page">
             <header className="reviews-head">
-                <h2>Customer Reviews</h2>
+                <h1>Customer Reviews</h1>
                 <p className="reviews-summary">
                     <strong>{average}</strong> average from {reviews.length}{" "}
                     {reviews.length === 1 ? "review" : "reviews"}
