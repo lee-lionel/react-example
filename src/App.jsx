@@ -16,12 +16,15 @@ function App() {
      <BrowserRouter>
      <div className='page'>
       <Header/>
+        {/* A main landmark, so assistive tech can skip the nav. */}
+        <main>
         <Routes>
           <Route path='/' element={<Profile/>}/>
           <Route path='/reviews' element={<Reviews/>}/>
           <Route path='/products' element={<Products/>}/>
           <Route path='/interests' element= {<Interests/>}/>
         </Routes>
+        </main>
         </div>
         <Footer className='footer'/>
      </BrowserRouter>
