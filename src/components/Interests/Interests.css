@@ -106,3 +106,12 @@
         font-size: 0.95rem;
     }
 }
+
+/* The grid is the page, so the heading has to opt out of being a cell. */
+.interests-title {
+    grid-column: 1 / -1;
+    margin: 0 0 4px;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--text-h);
+}

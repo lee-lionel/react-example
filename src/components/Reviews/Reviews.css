@@ -1,12 +1,7 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
-}
+/* No global rules here. A component stylesheet that restyles `body` leaks
+   across every route once bundled — this one used to paint #f7f7f7 over the
+   whole document, which broke dark mode everywhere. Document-level styling
+   lives in index.css. */
 
 /* MAIN PAGE */
 .reviews-page {
@@ -19,8 +14,11 @@ body {
     max-width: none;
 }
 
-/* TITLE */
+/* TITLE — h1 names the page, h2 the sections within it; both share the
+   same centred treatment they had when they were all h2. */
+.reviews-page h1,
 .reviews-page h2 {
+    font-size: 1.5rem;
     text-align: center;
     margin: 30px 0;
 }
@@ -44,7 +42,9 @@ body {
 /* CARD */
 /* ========================= */
 .Card-container {
-    background: white;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-h);
     border-radius: 12px;
 
     padding: 16px;
@@ -81,7 +81,7 @@ body {
 
 /* REVIEW TEXT */
 .review-text {
-    color: #444;
+    color: var(--text);
     font-size: 0.9rem;
     line-height: 1.4;
 
@@ -93,6 +93,7 @@ body {
 /* FORM */
 /* ========================= */
 .review-form {
+    color: var(--text-h);
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -100,7 +101,8 @@ body {
     max-width: 500px;
     margin: 40px auto;
 
-    background: white;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
     padding: 20px;
 
     border-radius: 12px;
@@ -112,7 +114,10 @@ body {
 .review-form textarea {
     padding: 10px;
 
-    border: 1px solid #ddd;
+    font: inherit;
+    color: var(--text-h);
+    background: var(--bg);
+    border: 1px solid var(--border);
     border-radius: 8px;
 }
 
@@ -127,34 +132,131 @@ body {
     border: none;
     border-radius: 8px;
 
-    background: #0077ff;
-    color: white;
+    font: inherit;
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--accent-ink);
 
     cursor: pointer;
 }
 
 .review-form button:hover {
-    background: #005fcc;
+    opacity: 0.88;
 }
 
 /* ========================= */
 /* STAR RATING */
 /* ========================= */
 .star-rating {
-    font-size: 2rem;
     display: flex;
-    gap: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
-.star-rating span {
+.star-rating legend {
+    padding: 0;
+    margin-bottom: 4px;
+}
+
+.star {
+    font-size: 1.9rem;
+    line-height: 1;
+    padding: 2px 4px;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
     cursor: pointer;
+}
+
+.star:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+    .star {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* ========================= */
+/* FORM FIELDS */
+/* ========================= */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.field-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.reviews-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px 18px;
+    margin-bottom: 12px;
+}
+
+.reviews-summary {
+    color: var(--text);
+}
+
+.reviews-summary strong {
+    color: var(--text-h);
+    font-size: 1.2rem;
+}
+
+.reviews-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text);
+    cursor: pointer;
+    user-select: none;
+}
+
+.reviews-filter input {
+    accent-color: var(--accent);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.posted {
+    color: var(--text-h);
+    font-weight: 600;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 /* ========================= */
 /* ERROR */
 /* ========================= */
 .error {
-    color: red;
+    color: #e5484d;
     font-weight: bold;
     text-align: center;
 }
