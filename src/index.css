@@ -1,3 +1,13 @@
+/* box-sizing was set on a single selector, so every component that paired
+   width:100% with padding grew wider than its parent — the reviews grid
+   pushed the document 60px past the viewport at every desktop width and
+   clipped the last column. A global reset is what that rule wanted to be. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
