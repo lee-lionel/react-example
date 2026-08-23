@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useBasket } from '../store/basket'
+import { useBasket } from '../store/basket-context'
 import { priceOf } from '../data/cards'
 import { money, plural } from '../lib/format'
 import './Basket.css'

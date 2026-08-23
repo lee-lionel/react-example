@@ -1,12 +1,6 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react'
-import products, { findById, priceOf } from '../data/cards'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { findById, priceOf } from '../data/cards'
+import { BasketContext } from './basket-context'
 
 /* The basket used to be useState inside the product list, which meant it was
    destroyed the moment you navigated to any other route and the header could
@@ -14,7 +8,6 @@ import products, { findById, priceOf } from '../data/cards'
    not a shop, so it lives here and survives a reload. */
 
 const KEY = 'lionels-cards-basket'
-const BasketContext = createContext(null)
 
 function read() {
   try {
@@ -84,12 +77,3 @@ export function BasketProvider({ children }) {
 
   return <BasketContext.Provider value={value}>{children}</BasketContext.Provider>
 }
-
-export function useBasket() {
-  const value = useContext(BasketContext)
-  if (!value) throw new Error('useBasket must be used inside a BasketProvider')
-  return value
-}
-
-/** Total pieces the shop holds, for the header stat. */
-export const TOTAL_STOCK = products.reduce((sum, card) => sum + card.quantity, 0)

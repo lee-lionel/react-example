@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { useBasket } from '../../store/basket'
+import { useBasket } from '../../store/basket-context'
 import './Header.css'
 
 const LINKS = [

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { priceOf, LOW_STOCK } from '../../data/cards'
-import { useBasket } from '../../store/basket'
+import { useBasket } from '../../store/basket-context'
 import { money } from '../../lib/format'
 import './CardTile.css'
 

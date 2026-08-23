@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import products, { findBySlug, priceOf, LOW_STOCK } from '../data/cards'
 import CardTile, { StockChip } from '../components/CardTile/CardTile'
-import { useBasket } from '../store/basket'
+import { useBasket } from '../store/basket-context'
 import { money } from '../lib/format'
 import './CardDetail.css'
 

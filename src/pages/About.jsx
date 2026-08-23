@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { TOTAL_STOCK } from '../store/basket'
+import { TOTAL_STOCK } from '../store/basket-context'
 import products from '../data/cards'
 import './About.css'
 
